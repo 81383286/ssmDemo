@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.emr.dao.Power_RoleMapper">
+    <resultMap id="BaseResultMap" type="com.emr.entity.Power_Role">
+        <id column="role_id" property="roleId" jdbcType="INTEGER"/>
+        <result column="role_name" property="roleName" jdbcType="VARCHAR"/>
+        <result column="show_record" property="showRecord" jdbcType="SMALLINT"/>
+        <result column="downLoad_record" property="downloadRecord" jdbcType="SMALLINT"/>
+        <result column="show_print" property="showPrint" jdbcType="SMALLINT"/>
+        <result column="remark" property="remark" jdbcType="VARCHAR"/>
+        <result column="effective" property="effective" jdbcType="INTEGER"/>
+        <result column="create_date" property="createDate" jdbcType="CHAR"/>
+        <result column="creater" property="creater" jdbcType="VARCHAR"/>
+        <result column="update_date" property="updateDate" jdbcType="CHAR"/>
+        <result column="updater" property="updater" jdbcType="VARCHAR"/>
+    </resultMap>
+    <select id="selectAll" resultMap="BaseResultMap">
+        select * from power_role
+    </select>
+    <insert id="insert" parameterType="com.emr.entity.Power_Role" >
+    insert into power_role (role_id, role_name, show_record,
+      downLoad_record, show_print, remark,
+      effective, create_date, creater,
+      update_date, updater)
+    values (#{roleId,jdbcType=INTEGER}, #{roleName,jdbcType=VARCHAR}, #{showRecord,jdbcType=SMALLINT},
+      #{downloadRecord,jdbcType=SMALLINT}, #{showPrint,jdbcType=SMALLINT}, #{remark,jdbcType=VARCHAR},
+      #{effective,jdbcType=INTEGER}, #{createDate,jdbcType=CHAR}, #{creater,jdbcType=VARCHAR},
+      #{updateDate,jdbcType=CHAR}, #{updater,jdbcType=VARCHAR})
+  </insert>
+</mapper>
